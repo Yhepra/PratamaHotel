@@ -15,6 +15,7 @@ namespace PratamaHotel.Data
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+                context.Database.EnsureCreated();
                 if (!context.Roles.Any())
                 {
                     context.Roles.AddRange(new Role()
@@ -41,7 +42,7 @@ namespace PratamaHotel.Data
                         address = "Ciamis",
                         email = "yhepra@gmail.com",
                         password = "20000707",
-                        // role = 
+                        //role = 
                     });
                     context.SaveChanges();
                 }
