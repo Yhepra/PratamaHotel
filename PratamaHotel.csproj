@@ -16,4 +16,13 @@
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\GM\Controllers\" />
+    <Folder Include="Areas\GM\View\" />
+    <Folder Include="Areas\Receptionist\Controllers\" />
+    <Folder Include="Areas\Receptionist\View\" />
+    <Folder Include="Halper\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

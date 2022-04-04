@@ -42,7 +42,7 @@ namespace PratamaHotel.Data
                         address = "Ciamis",
                         email = "yhepra@gmail.com",
                         password = "20000707",
-                        //role = 
+                        role = context.Roles.Where(x => x.id == 1).FirstOrDefault()
                     });
                     context.SaveChanges();
                 }
