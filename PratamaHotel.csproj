@@ -13,16 +13,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.10" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\GM\Controllers\" />
-    <Folder Include="Areas\GM\View\" />
-    <Folder Include="Areas\Receptionist\Controllers\" />
-    <Folder Include="Areas\Receptionist\View\" />
-    <Folder Include="Halper\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
