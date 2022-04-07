@@ -15,5 +15,6 @@ namespace PratamaHotel.Models
         public string email { get; set; }
         public string password { get; set; }
         public Role role { get; set; }
+        public string image { get; set; }
     }
 }

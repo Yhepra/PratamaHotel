@@ -32,6 +32,22 @@ namespace PratamaHotel.Repositories
             return await _context.Employees.Include(x => x.role).FirstOrDefaultAsync(x => x.id == id && x.password == password);
         }
 
-        
+        public async Task<bool> CreateEmployeeAsync(Employee data)
+        {
+            _context.Employees.Add(data);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+
+        public async Task<Role> GetRoleByIDAsync(int id)
+        {
+            return await _context.Roles.FirstOrDefaultAsync(x=>x.id == id);
+        }
+
+        public async Task<List<Role>> GetAllRoleAsync()
+        {
+            return await _context.Roles.ToListAsync();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PratamaHotel.Models;
 using PratamaHotel.Services;
@@ -33,12 +34,12 @@ namespace PratamaHotel.Areas.GM.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(Employee employee, IFormFile image)
         {
-            if (!ModelState.IsValid) return View();
-
-
-
+            if (ModelState.IsValid) {
+                _service.CreateEmployee(employee, image);
+                return RedirectToAction("Index");
+            } 
             return View();
         }
     }

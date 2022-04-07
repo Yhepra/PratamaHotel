@@ -1,4 +1,5 @@
-﻿using PratamaHotel.Models;
+﻿using Microsoft.AspNetCore.Http;
+using PratamaHotel.Models;
 using PratamaHotel.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,23 @@ namespace PratamaHotel.Services
     public class Service : IService
     {
         private readonly IRepository _repository;
+        private readonly FileService _file;
 
-        public Service(IRepository r)
+        public Service(IRepository r, FileService f)
         {
             _repository = r;
+            _file = f;
+        }
+
+        public bool CreateEmployee(Employee data, IFormFile file)
+        {
+            DateTime date = DateTime.Now;
+            long iDate = long.Parse(date.ToString("yyyyMMddHHmmss")) - 19000000;
+            data.id = iDate.ToString();
+            data.image = _file.SaveFile(file).Result;
+            data.role = _repository.GetRoleByIDAsync(2).Result;
+
+            return _repository.CreateEmployeeAsync(data).Result;
         }
 
         public List<Employee> GetAllEmployee()

@@ -31,6 +31,7 @@ namespace PratamaHotel
             {
                 options.LoginPath = "/Account/Login";
             });
+            services.AddTransient<FileService>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(o =>
             {
