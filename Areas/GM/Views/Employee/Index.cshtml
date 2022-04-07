@@ -1,0 +1,56 @@
+﻿@using PratamaHotel.Models;
+
+@model List<Employee>;
+
+@{ 
+    ViewData["Title"] = "Empoyee";
+    Layout = "_AdminLayout";
+}
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="">EMPLOYEE DATA</h4>
+                <p class="card-description">
+                    (Data karyawan)
+                </p>
+            </div>
+            <div>
+                <a class="btn btn-primary btn-rounded ti-plus" href="Employee/Create"> Add</a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Alamat</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th width="20%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.name</td>
+                            <td>@item.address</td>
+                            <td>@item.email</td>
+                            <td>@item.role.name</td>
+                            <td>
+                                <button class="btn btn-light w-25 p-2"><a class="ti-info-alt"></a></button>
+                                <button class="btn btn-success w-25 p-2"><a class="ti-pencil"></a></button>
+                                <button class="btn btn-danger w-25 p-2"><a class="ti-trash"></a></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

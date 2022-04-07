@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace PratamaHotel.Halper
+namespace PratamaHotel.Helper
 {
     public class General
     {

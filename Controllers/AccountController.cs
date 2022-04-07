@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using PratamaHotel.Halper;
+using PratamaHotel.Helper;
 using PratamaHotel.Models;
 using PratamaHotel.Services;
 using System;
@@ -61,6 +61,12 @@ namespace PratamaHotel.Controllers
             if (dt.role.name == "General Manager") return Redirect("/GM/Home");
             else if (dt.role.name == "Receptionist") return Redirect("/Receptionist/Home");
             else return Redirect("/");
+        }
+        
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
         }
     }
 }
