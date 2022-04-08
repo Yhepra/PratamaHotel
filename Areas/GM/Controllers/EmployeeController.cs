@@ -70,7 +70,8 @@ namespace PratamaHotel.Areas.GM.Controllers
 
         public IActionResult Delete(string id)
         {
-            _service.
+            _service.DeleteEmployee(id);
+            return RedirectToAction("Index");
         }
     }
 }
