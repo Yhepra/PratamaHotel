@@ -49,5 +49,19 @@ namespace PratamaHotel.Repositories
         {
             return await _context.Roles.ToListAsync();
         }
+
+        public async Task<bool> UpdateEmployeeAsync(Employee data)
+        {
+            _context.Employees.Update(data);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteEmployeeAsync(Employee data)
+        {
+            _context.Employees.Remove(data);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

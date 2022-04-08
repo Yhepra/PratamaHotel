@@ -1,0 +1,50 @@
+﻿@using PratamaHotel.Models;
+
+@model Employee;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_AdminLayout";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Edit employee data</h4>
+        <p class="card-description">
+            (Ubah data karyawan)
+        </p>
+        <form class="forms-sample" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input asp-for="name" type="text" class="form-control" id="Name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="Address">Address</label>
+                <input asp-for="address" type="text" class="form-control" id="Address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input asp-for="email" type="email" class="form-control" id="Email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input asp-for="password" type="text" class="form-control" id="Password" placeholder="Password">
+            </div>
+            @*<div class="form-group">
+                    <label for="Role">Role</label>
+                    <select class="form-control" id="Role">
+                        <option>General Manager</option>
+                        <option>Receptionist</option>
+                    </select>
+                </div>*@
+            <div class="form-group">
+                <label>File upload</label>
+                <div class="input-group col-xs-12">
+                    <input type="file" name="image" accept=".jpg,.jpeg.,png" class="form-control file-upload-info" placeholder="Upload Image">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <button asp-action="Index" class="btn btn-light">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -13,6 +13,8 @@ namespace PratamaHotel.Repositories
         Task<List<Employee>> GetAllEmployeeAsync();
         Task<Employee> GetEmployeeByIDAsync(string id);
         Task<Employee> GetEmployeeByIDAndPasswordAsync(string id, string password);
+        Task<bool> UpdateEmployeeAsync(Employee data);
+        Task<bool> DeleteEmployeeAsync(Employee data);
 
         //Role
         Task<List<Role>> GetAllRoleAsync();

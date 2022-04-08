@@ -13,6 +13,8 @@ namespace PratamaHotel.Services
         Employee GetEmployeeByID(string id);
         Employee GetEmployeeByIDAndPassword(string id, string password);
         bool CreateEmployee(Employee data, IFormFile file);
+        bool UpdateEmployee(Employee data, IFormFile file);
+        bool DeleteEmployee(string id);
 
         List<Role> GetRoles();
     }

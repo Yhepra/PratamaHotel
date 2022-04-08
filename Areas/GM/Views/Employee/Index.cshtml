@@ -45,9 +45,9 @@
                             <td>@item.email</td>
                             <td>@item.role.name</td>
                             <td>
-                                <a asp-action="Detail" asp-route-id="@item.id" class="btn btn-light w-25 p-2 ti-info-alt"></a>
-                                <button asp-action="" asp-route-id="@item.id" class="btn btn-success w-25 p-2"><a class="ti-pencil"></a></button>
-                                <button asp-action="" asp-route-id="@item.id" class="btn btn-danger w-25 p-2"><a class="ti-trash"></a></button>
+                                <a asp-action="Detail" asp-route-id="@item.id" class="btn btn-secondary w-25 p-2 ti-info-alt"></a>
+                                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-success w-25 p-2 ti-pencil-alt"></a>
+                                <a asp-action="" asp-route-id="@item.id" class="btn btn-danger w-25 p-2 ti-trash"></a>
                             </td>
                         </tr>
                     }

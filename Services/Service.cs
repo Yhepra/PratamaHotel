@@ -19,17 +19,6 @@ namespace PratamaHotel.Services
             _file = f;
         }
 
-        public bool CreateEmployee(Employee data, IFormFile file)
-        {
-            DateTime date = DateTime.Now;
-            long iDate = long.Parse(date.ToString("yyyyMMddHHmmss")) - 19000000;
-            data.id = iDate.ToString();
-            data.image = _file.SaveFile(file).Result;
-            data.role = _repository.GetRoleByIDAsync(2).Result;
-
-            return _repository.CreateEmployeeAsync(data).Result;
-        }
-
         public List<Employee> GetAllEmployee()
         {
             return _repository.GetAllEmployeeAsync().Result;
@@ -49,6 +38,34 @@ namespace PratamaHotel.Services
         {
             return _repository.GetAllRoleAsync().Result;
             
+        }
+
+        //CREATE EMPLOYEE
+        public bool CreateEmployee(Employee data, IFormFile file)
+        {
+            DateTime date = DateTime.Now;
+            long iDate = long.Parse(date.ToString("yyyyMMddHHmmss")) - 19000000;
+            data.id = iDate.ToString();
+            data.image = _file.SaveFile(file).Result;
+            data.role = _repository.GetRoleByIDAsync(2).Result;
+
+            return _repository.CreateEmployeeAsync(data).Result;
+        }
+
+        //UPDATE EMPLOYEE
+        public bool UpdateEmployee(Employee data, IFormFile file)
+        {
+            data.image = _file.SaveFile(file).Result;
+            
+            return _repository.UpdateEmployeeAsync(data).Result; 
+            
+        }
+
+        public bool DeleteEmployee(string id)
+        {
+            var search = _repository.GetEmployeeByIDAsync(id).Result;
+            _repository.DeleteEmployeeAsync(search);
+            return true;
         }
     }
 }

@@ -50,5 +50,27 @@ namespace PratamaHotel.Areas.GM.Controllers
             var cari = _service.GetEmployeeByID(id);
             return cari == null ? NotFound() : View(cari);
         }
+
+        public IActionResult Edit(string id)
+        {
+            var cari = _service.GetEmployeeByID(id);
+            return cari == null ? NotFound() : View(cari);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Employee employee, IFormFile image)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.UpdateEmployee(employee, image);
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
+
+        public IActionResult Delete(string id)
+        {
+            _service.
+        }
     }
 }
