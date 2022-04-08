@@ -44,5 +44,11 @@ namespace PratamaHotel.Services
         {
             return _repository.GetEmployeeByIDAndPasswordAsync(id, password).Result;
         }
+
+        public List<Role> GetRoles()
+        {
+            return _repository.GetAllRoleAsync().Result;
+            
+        }
     }
 }

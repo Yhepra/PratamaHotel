@@ -30,6 +30,8 @@ namespace PratamaHotel.Areas.GM.Controllers
 
         public IActionResult Create()
         {
+            //var role = _service.GetRoles();
+            //ViewBag.role = role.ToArray();
             return View();
         }
 
@@ -41,6 +43,12 @@ namespace PratamaHotel.Areas.GM.Controllers
                 return RedirectToAction("Index");
             } 
             return View();
+        }
+
+        public IActionResult Detail(string id)
+        {
+            var cari = _service.GetEmployeeByID(id);
+            return cari == null ? NotFound() : View(cari);
         }
     }
 }
