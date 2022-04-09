@@ -63,5 +63,39 @@ namespace PratamaHotel.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
+
+        //RoomType
+        public async Task<List<RoomType>> GetRoomTypeAsync()
+        {
+            return await _context.RoomTypes.ToListAsync();
+        }
+
+        public async Task<RoomType> GetRoomTypeByIDAsync(string id)
+        {
+            return await _context.RoomTypes.FindAsync(id);
+        }
+
+        public async Task<bool> CreateRoomTypeAsync(RoomType data)
+        {
+            _context.RoomTypes.Add(data);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateRoomTypeAsync(RoomType data)
+        {
+            _context.RoomTypes.Update(data);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteRoomTypeAsync(RoomType data)
+        {
+            _context.RoomTypes.Remove(data);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        
     }
 }

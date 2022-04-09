@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using PratamaHotel.Data;
+using PratamaHotel.Models;
 using PratamaHotel.Repositories;
 using PratamaHotel.Services;
 using System;
@@ -38,7 +39,9 @@ namespace PratamaHotel
                 o.UseMySQL(Configuration.GetConnectionString("mysql"));
             });
             services.AddScoped<IRepository, Repository>();
+            services.AddTransient<EmailService>();
             services.AddScoped<IService, Service>();
+            services.Configure<Email>(Configuration.GetSection("SetEmail"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

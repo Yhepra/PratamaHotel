@@ -15,10 +15,12 @@ namespace PratamaHotel.Areas.GM.Controllers
     public class EmployeeController : Controller
     {
         private readonly IService _service;
+        private readonly EmailService _email;
 
-        public EmployeeController(IService s)
+        public EmployeeController(IService s, EmailService em)
         {
             _service = s;
+            _email = em;
         }
 
         public IActionResult Index()
@@ -55,6 +57,8 @@ namespace PratamaHotel.Areas.GM.Controllers
                     emp.role = rl;
                 }
                 _service.CreateEmployee(emp, image);
+                _email.SendEmail(emp.email, "Pendaftaran Berhasil!", "Berikut adalah ID dan password anda<br><br><table><tr><td>ID</td><td>" + emp.id + "</td></tr><tr><td>Password</td><td>" + emp.password + "</td></tr></table>");
+
                 return RedirectToAction("Index");
             }
             return View();

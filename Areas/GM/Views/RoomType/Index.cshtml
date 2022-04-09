@@ -1,0 +1,63 @@
+﻿@model List<RoomType>;
+
+@{
+    ViewData["Title"] = "RoomType";
+    Layout = "_AdminLayout";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="">ROOM TYPE</h4>
+                <p class="card-description">
+                    (Tipe Kamar)
+                </p>
+            </div>
+            <div>
+                <a class="btn btn-primary btn-rounded ti-plus" href="RoomType/Create"> Add</a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            @if (Model.Any())
+            {
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Capacity</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th width="20%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.name</td>
+                            <td>@item.capacity</td>
+                            <td>@item.price</td>
+                            <td>@item.numberOfRooms</td>
+                            <td>
+                                <a asp-action="Detail" asp-route-id="@item.id" class="btn btn-secondary w-25 p-2 ti-info-alt"></a>
+                                <a asp-action="Update" asp-route-id="@item.id" class="btn btn-success w-25 p-2 ti-pencil-alt"></a>
+                                <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger w-25 p-2 ti-trash"></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="text-center">
+                    <p>Data kosong / Tidak ada data untuk ditampilkan!</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

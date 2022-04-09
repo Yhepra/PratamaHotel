@@ -67,5 +67,34 @@ namespace PratamaHotel.Services
             _repository.DeleteEmployeeAsync(search);
             return true;
         }
+
+        //RoomType
+        public List<RoomType> GetRoomTypes()
+        {
+            return _repository.GetRoomTypeAsync().Result;
+        }
+
+        public RoomType GetRoomTypeByID(string id)
+        {
+            return _repository.GetRoomTypeByIDAsync(id).Result;
+        }
+
+        public bool CreateRoomType(RoomType data)
+        {
+            data.numberOfRooms = 0;
+            return _repository.CreateRoomTypeAsync(data).Result;
+        }
+
+        public bool UpdateRoomType(RoomType data)
+        {
+            return _repository.UpdateRoomTypeAsync(data).Result;
+        }
+
+        public bool DeleteRoomType(string id)
+        {
+            var search = _repository.GetRoomTypeByIDAsync(id).Result;
+            _repository.DeleteRoomTypeAsync(search);
+            return true;
+        }
     }
 }

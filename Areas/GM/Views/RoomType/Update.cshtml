@@ -1,0 +1,39 @@
+﻿@model RoomType;
+
+@{
+    ViewData["Title"] = "Udpate";
+    Layout = "_AdminLayout";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="">EDIT ROOM TYPE</h4>
+                <p class="card-description">
+                    (Ubah tipe kamar)
+                </p>
+            </div>
+        </div>
+        <form class="forms-sample" asp-action="Update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="id">Name</label>
+                <input asp-for="id" type="text" class="form-control" id="id" placeholder="ID">
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input asp-for="name" type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input asp-for="price" type="number" class="form-control" id="price" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacity</label>
+                <input asp-for="capacity" type="number" class="form-control" id="capacity" placeholder="Capacity">
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <button asp-action="Index" class="btn btn-light">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -46,6 +46,55 @@ namespace PratamaHotel.Data
                     });
                     context.SaveChanges();
                 }
+
+                if (!context.RoomTypes.Any())
+                {
+                    context.RoomTypes.AddRange(new RoomType()
+                    {
+                        id = "SR",
+                        name = "Singe Room",
+                        price = 300000,
+                        capacity = 1,
+                        numberOfRooms = 1
+                    }, new RoomType
+                    {
+                        id = "TR",
+                        name = "Twin Room",
+                        price = 400000,
+                        capacity = 2,
+                        numberOfRooms = 0
+                    }, new RoomType
+                    {
+                        id = "DR",
+                        name = "Double Room",
+                        price = 450000,
+                        capacity = 2,
+                        numberOfRooms = 1
+                    }, new RoomType
+                    {
+                        id = "FR",
+                        name = "Family Room",
+                        price = 600000,
+                        capacity = 4,
+                        numberOfRooms = 0
+                    });
+                    context.SaveChanges();
+                }
+
+                if (!context.Rooms.Any())
+                {
+                    context.Rooms.AddRange(new Room()
+                    {
+                        idRoom = "101",
+                        roomType = context.RoomTypes.Where(x => x.id == "SR").FirstOrDefault()
+                    },
+                    new Room()
+                    {
+                        idRoom = "110",
+                        roomType = context.RoomTypes.Where(x => x.id == "DR").FirstOrDefault()
+                    }) ;
+                    context.SaveChanges();
+                }
             }
         }
     }

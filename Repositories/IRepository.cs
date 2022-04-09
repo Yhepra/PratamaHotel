@@ -19,5 +19,12 @@ namespace PratamaHotel.Repositories
         //Role
         Task<List<Role>> GetAllRoleAsync();
         Task<Role> GetRoleByIDAsync(int id);
+
+        //RoomType
+        Task<List<RoomType>> GetRoomTypeAsync();
+        Task<RoomType> GetRoomTypeByIDAsync(string id);
+        Task<bool> CreateRoomTypeAsync(RoomType data);
+        Task<bool> UpdateRoomTypeAsync(RoomType data);
+        Task<bool> DeleteRoomTypeAsync(RoomType data);
     }
 }
