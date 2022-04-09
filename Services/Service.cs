@@ -47,7 +47,6 @@ namespace PratamaHotel.Services
             long iDate = long.Parse(date.ToString("yyyyMMddHHmmss")) - 19000000;
             data.id = iDate.ToString();
             data.image = _file.SaveFile(file).Result;
-            //data.role = _repository.GetRoleByIDAsync(2).Result;
 
             return _repository.CreateEmployeeAsync(data).Result;
         }
@@ -94,6 +93,34 @@ namespace PratamaHotel.Services
         {
             var search = _repository.GetRoomTypeByIDAsync(id).Result;
             _repository.DeleteRoomTypeAsync(search);
+            return true;
+        }
+
+        // ROOM ///////////////////////////////////////////////////////////////////////////////////////////////////
+        public List<Room> GetRoom()
+        {
+            return _repository.GetRoomAsync().Result;
+        }
+
+        public Room GetRoomByID(string id)
+        {
+            return _repository.GetRoomByIDAsync(id).Result;
+        }
+
+        public bool CreateRoom(Room data)
+        {
+            return _repository.CreateRoomAsync(data).Result;
+        }
+
+        public bool UpdateRoom(Room data)
+        {
+            return _repository.UpdateRoomAsync(data).Result;
+        }
+
+        public bool DeleteRoom(string data)
+        {
+            var search = _repository.GetRoomByIDAsync(data).Result;
+            _repository.DeleteRoomAsync(search);
             return true;
         }
     }

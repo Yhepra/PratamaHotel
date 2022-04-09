@@ -12,4 +12,9 @@ namespace PratamaHotel.Models
         public string idRoom { get; set; }
         public RoomType roomType { get; set; }
     }
+
+    public class RoomForm {
+        public string idRoom { get; set; }
+        public string roomType { get; set; }
+    }
 }

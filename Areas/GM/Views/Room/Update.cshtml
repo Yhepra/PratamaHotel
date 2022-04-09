@@ -1,0 +1,40 @@
+﻿@model Room;
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "_AdminLayout";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="">EDIT ROOM</h4>
+                <p class="card-description">
+                    (Ubah kamar)
+                </p>
+            </div>
+            <div>
+                <a class="btn btn-primary btn-rounded ti-plus" href="RoomType/Create"> Add</a>
+            </div>
+        </div>
+        <form class="forms-sample" asp-action="Update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="id">Name</label>
+                <input asp-for="idRoom" type="text" class="form-control" id="id" placeholder="ID">
+            </div>
+            <div class="form-group">
+                <label for="Role">Role</label>
+                <select asp-for="roomType" name="roomtype" class="form-control">
+                    @foreach (var i in ViewBag.roomtype)
+                    {
+                        <option value="@i.id">@i.name</option>
+                    }
+                </select>
+                @*@Html.DropDownListFor(x => x.role, new SelectList(ViewBag.role, "id", "name"))*@
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <button asp-action="index" class="btn btn-light">Cancel</button>
+        </form>
+    </div>
+</div>

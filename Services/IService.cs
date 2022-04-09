@@ -23,5 +23,12 @@ namespace PratamaHotel.Services
         bool CreateRoomType(RoomType data);
         bool UpdateRoomType(RoomType data);
         bool DeleteRoomType(string data);
+
+        //room
+        List<Room> GetRoom();
+        Room GetRoomByID(string id);
+        bool CreateRoom(Room data);
+        bool UpdateRoom(Room data);
+        bool DeleteRoom(string data);
     }
 }
