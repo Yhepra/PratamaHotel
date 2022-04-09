@@ -47,7 +47,7 @@ namespace PratamaHotel.Services
             long iDate = long.Parse(date.ToString("yyyyMMddHHmmss")) - 19000000;
             data.id = iDate.ToString();
             data.image = _file.SaveFile(file).Result;
-            data.role = _repository.GetRoleByIDAsync(2).Result;
+            //data.role = _repository.GetRoleByIDAsync(2).Result;
 
             return _repository.CreateEmployeeAsync(data).Result;
         }

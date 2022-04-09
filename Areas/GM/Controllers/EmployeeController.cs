@@ -30,18 +30,33 @@ namespace PratamaHotel.Areas.GM.Controllers
 
         public IActionResult Create()
         {
-            //var role = _service.GetRoles();
-            //ViewBag.role = role.ToArray();
+            var role = _service.GetRoles().ToList();
+            ViewBag.role = role;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee, IFormFile image)
+        public IActionResult Create(EmployeForm employee, IFormFile image)
         {
-            if (ModelState.IsValid) {
-                _service.CreateEmployee(employee, image);
+            if (ModelState.IsValid)
+            {
+                var emp = new Employee()
+                {
+                    name = employee.name,
+                    address = employee.address,
+                    email = employee.email,
+                    password = employee.password,
+                };
+
+                var rl = _service.GetRoles().FirstOrDefault(x => x.id == employee.role);
+
+                if(rl != null)
+                {
+                    emp.role = rl;
+                }
+                _service.CreateEmployee(emp, image);
                 return RedirectToAction("Index");
-            } 
+            }
             return View();
         }
 
