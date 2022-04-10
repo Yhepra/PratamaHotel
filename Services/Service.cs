@@ -123,5 +123,33 @@ namespace PratamaHotel.Services
             _repository.DeleteRoomAsync(search);
             return true;
         }
+
+        //GUEST///////////////////////////////////////////////////////////////////////////////////////////////
+        public List<Guest> GetGuest()
+        {
+            return _repository.GetGuestAsync().Result;
+        }
+
+        public Guest GetGuestByID(int id)
+        {
+            return _repository.GetGuestByIDAsync(id).Result;
+        }
+
+        public bool CreateGuest(Guest data)
+        {
+            return _repository.CreateGuestAsync(data).Result;
+        }
+
+        public bool UpdateGuest(Guest data)
+        {
+            return _repository.UpdateGuestAsync(data).Result;
+        }
+
+        public bool DeleteGuest(int data)
+        {
+            var search = _repository.GetGuestByIDAsync(data).Result;
+            _repository.DeleteGuestAsync(search);
+            return true;
+        }
     }
 }

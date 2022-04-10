@@ -33,5 +33,12 @@ namespace PratamaHotel.Repositories
         Task<bool> CreateRoomAsync(Room data);
         Task<bool> UpdateRoomAsync(Room data);
         Task<bool> DeleteRoomAsync(Room data);
+
+        //Guest
+        Task<List<Guest>> GetGuestAsync();
+        Task<Guest> GetGuestByIDAsync(int id);
+        Task<bool> CreateGuestAsync(Guest data);
+        Task<bool> UpdateGuestAsync(Guest data);
+        Task<bool> DeleteGuestAsync(Guest data);
     }
 }

@@ -1,6 +1,6 @@
 ﻿@using PratamaHotel.Models;
 
-@model Employee;
+@model Guest;
 
 @{
     ViewData["Title"] = "Create";
@@ -13,13 +13,13 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="">ADD EMPLOYEE DATA</h4>
+                <h4 class="">ADD GUEST DATA</h4>
                 <p class="card-description">
-                    (Tambah data karyawan)
+                    (Tambah data tamu)
                 </p>
             </div>
             <div>
-                <a class="btn btn-primary btn-rounded ti-plus" href="Employee/Create"> Add</a>
+                <a class="btn btn-primary btn-rounded ti-plus" href="Guest/Create"> Add</a>
             </div>
         </div>
         <form class="forms-sample" asp-action="Create" method="post" enctype="multipart/form-data">
@@ -32,28 +32,16 @@
                 <input asp-for="address" type="text" class="form-control" id="Address" placeholder="Address">
             </div>
             <div class="form-group">
+                <label for="IdCardNumber">Id Card Number</label>
+                <input asp-for="idCardNumber" type="number" class="form-control" id="IdCardNumber" placeholder="ID Card Number">
+            </div>
+            <div class="form-group">
+                <label for="Phone">Phone</label>
+                <input asp-for="phoneNumber" type="number" class="form-control" id="Phone" placeholder="Phone">
+            </div>
+            <div class="form-group">
                 <label for="Email">Email</label>
                 <input asp-for="email" type="email" class="form-control" id="Email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input asp-for="password" type="password" class="form-control" id="Password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <label for="Role">Role</label>
-                <select asp-for="role" name="role" class="form-control">
-                    @foreach (var i in ViewBag.role)
-                    {
-                        <option value="@i.id">@i.name</option>
-                    }
-                </select>
-                @*@Html.DropDownListFor(x => x.role, new SelectList(ViewBag.role, "id", "name"))*@
-            </div>
-            <div class="form-group">
-                <label>File upload</label>
-                <div class="input-group col-xs-12">
-                    <input type="file" name="image" accept=".jpg,.jpeg.,png" class="form-control file-upload-info" placeholder="Upload Image">
-                </div>
             </div>
             <button type="submit" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">Submit</button>
             <button class="btn btn-light">Cancel</button>
@@ -71,7 +59,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>ID dan Password berhasil dikirim melalui email anda. Silahkan periksa email.</p>
+                <p>Data anda berhasil ditambahkan ke database hotel.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
