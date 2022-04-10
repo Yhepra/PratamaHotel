@@ -68,5 +68,10 @@ namespace PratamaHotel.Controllers
             await HttpContext.SignOutAsync();
             return Redirect("/");
         }
+
+        public IActionResult Block()
+        {
+            return View();
+        }
     }
 }

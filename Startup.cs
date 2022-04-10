@@ -31,6 +31,7 @@ namespace PratamaHotel
             services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
             {
                 options.LoginPath = "/Account/Login";
+                options.AccessDeniedPath = "/Account/Block";
             });
             services.AddTransient<FileService>();
             services.AddControllersWithViews();
